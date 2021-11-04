@@ -15,7 +15,7 @@ public class Shoot : MonoBehaviour
     {
         if (Time.time - lastTime > throwRate)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 ObjectPoolSpawn();
             }
