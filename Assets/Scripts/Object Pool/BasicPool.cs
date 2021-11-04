@@ -6,34 +6,30 @@ public class BasicPool : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
 
-    public static BasicPool Instance { get; private set; }
-
     private Queue<GameObject> availableObjects = new Queue<GameObject>();
 
+    public static BasicPool Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-        IncreasePool();
+        GrowPool();
     }
 
     public GameObject GetPool()
     {
-        if (availableObjects.Count == 0)
-            IncreasePool();
-
         var instance = availableObjects.Dequeue();
         instance.SetActive(true);
         return instance;
     }
 
-    private void IncreasePool()
+    private void GrowPool()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
-            var instToAdd = Instantiate(prefab);
-            instToAdd.transform.SetParent(transform);
-            AddPool(instToAdd);
+            var instanceToAdd = Instantiate(prefab);
+            instanceToAdd.transform.SetParent(transform);
+            AddPool(instanceToAdd);
         }
     }
 

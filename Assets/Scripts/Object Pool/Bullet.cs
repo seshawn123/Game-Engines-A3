@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroy(gameObject);
-        BasicPool.Instance.AddPool(gameObject);
+        if (collision.gameObject.tag != "Coin")
+        {
+            BasicPool.Instance.AddPool(gameObject);
+        }
     }
 }
