@@ -6,14 +6,14 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] private float throwRate = 0.5f;
-    [SerializeField] private float bulletSpeed = 20f;
+    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float bulletSpeed = 3f;
 
     private float lastTime;
 
     void Update()
     {
-        if (Time.time - lastTime > throwRate)
+        if (Time.time - lastTime > fireRate)
         {
             if (Input.GetMouseButtonDown(1))
             {
